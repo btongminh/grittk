@@ -24,12 +24,17 @@ class Frame(ttk.Frame):
         tk.Grid.columnconfigure(master, 0, weight = 1)        
         self.grid(sticky = 'nwse')
         
+        self.create_widgets(desc, l10n)
+        self.configure_grid(desc)
+        
+    def create_widgets(self, desc, l10n):
         # Create widgets
         self.widgets = grittk.create_widgets(self, desc['widgets'], 
                               default_args = desc['default_args'], 
                               default_grid_args = desc['default_grid_args'],
                               l10n = l10n)
         
+    def configure_grid(self, desc):
         # Configure the grid
         grittk.configure_grid(self, desc['grid'])
         
