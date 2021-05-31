@@ -48,7 +48,7 @@ def create_widget(master, widgets, name, widget_desc, default_args, l10n):
     # Create and grid the widget
     widget = widget_mapping[widget_desc['type']](master, **args)
     if 'widgets' in widget_desc:
-        widgets.update(create_widgets(master, widget_desc, l10n = l10n))    
+        widgets.update(create_widgets(widget, widget_desc, l10n = l10n))    
     
     widgets[name] = widget
 
